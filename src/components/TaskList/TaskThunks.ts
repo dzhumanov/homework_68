@@ -22,6 +22,13 @@ export const toggleTask = createAsyncThunk<void, string, { state: RootState }>(
   }
 );
 
+export const deleteTask = createAsyncThunk<void, string, { state: RootState }>(
+  "tasks/deleteTask",
+  async (taskId) => {
+    await axiosApi.delete(`todo/${taskId}.json`);
+  }
+);
+
 export const createNewTask = createAsyncThunk<
   void,
   undefined,
