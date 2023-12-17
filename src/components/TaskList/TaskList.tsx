@@ -14,6 +14,10 @@ const TaskList = () => {
         dispatch(fetchTasks());
     }, [dispatch])
 
+    const onToggle = () => {
+        
+    }
+
   return (
     <>
       {tasks? (
@@ -21,7 +25,7 @@ const TaskList = () => {
             <Task key={key} title={tasks[key].title} isDone={tasks[key].isDone}/>
         ))
       ) : (
-        <div>No tasks</div>
+        <h1 className="text-center">No tasks</h1>
       )}
     </>
   );
