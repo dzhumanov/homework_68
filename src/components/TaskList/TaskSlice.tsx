@@ -9,7 +9,7 @@ interface TaskState {
   newTask: {
     title: string;
     isDone: boolean;
-  },
+  };
 }
 
 const initialState: TaskState = {
@@ -17,9 +17,9 @@ const initialState: TaskState = {
   isLoading: false,
   isError: false,
   newTask: {
-    title: '',
+    title: "",
     isDone: false,
-  }
+  },
 };
 
 export const taskSlice = createSlice({
@@ -47,4 +47,4 @@ export const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const {newTask} = taskSlice.actions;
+export const { newTask } = taskSlice.actions;

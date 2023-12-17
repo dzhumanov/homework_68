@@ -6,9 +6,6 @@ import { deleteTask, fetchTasks, toggleTask } from "./TaskThunks";
 
 const TaskList = () => {
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
-  const tasksIsLoading = useSelector(
-    (state: RootState) => state.tasks.isLoading
-  );
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
