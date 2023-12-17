@@ -8,6 +8,20 @@ export const fetchTasks = createAsyncThunk("tasks/fetch", async () => {
   return response.data;
 });
 
+export const toggleTask = createAsyncThunk<void, string, { state: RootState }>(
+  "tasks/toggleTask",
+  async (taskId, thunkAPI) => {
+    const currentState = thunkAPI.getState().tasks;
+    if (currentState && currentState.tasks && currentState.tasks[taskId]) {
+      const updatedTask = {
+        ...currentState.tasks[taskId],
+        isDone: !currentState.tasks[taskId].isDone,
+      };
+      await axiosApi.put(`todo/${taskId}.json`, updatedTask);
+    }
+  }
+);
+
 export const createNewTask = createAsyncThunk<
   void,
   undefined,

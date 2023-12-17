@@ -27,13 +27,13 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     newTask: (state, action: PayloadAction<string>) => {
-        state.newTask.title = action.payload;
-    }
+      state.newTask.title = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTasks.pending, (state) => {
-        state.isLoading = true;
-        state.isError = false;
+      state.isLoading = true;
+      state.isError = false;
     });
     builder.addCase(fetchTasks.fulfilled, (state, action) => {
       state.tasks = action.payload;
@@ -43,7 +43,7 @@ export const taskSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
     });
-  }
+  },
 });
 
 export const taskReducer = taskSlice.reducer;
