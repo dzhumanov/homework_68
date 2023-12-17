@@ -1,12 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { AppDispatch, RootState } from "../../app/store";
 import Task from "./Task";
+import { useEffect } from "react";
+import { fetchTasks } from "./TaskThunks";
 
 const TaskList = () => {
 
     const tasks = useSelector((state:RootState) => state.tasks.tasks);
-    const dispatch = useDispatch();
+    const tasksIsLoading = useSelector((state:RootState) => state.tasks.isLoading)
+    const dispatch:AppDispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch])
 
   return (
     <>
